@@ -35,18 +35,13 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#resultados" className="text-primary-foreground/80 hover:text-accent transition-colors duration-200">
-                  Resultados
+                <a href="#beneficios" className="text-primary-foreground/80 hover:text-accent transition-colors duration-200">
+                  Benefícios
                 </a>
               </li>
               <li>
-                <a href="#cases" className="text-primary-foreground/80 hover:text-accent transition-colors duration-200">
-                  Cases de Sucesso
-                </a>
-              </li>
-              <li>
-                <a href="#demo" className="text-primary-foreground/80 hover:text-accent transition-colors duration-200">
-                  Demo Ao Vivo
+                <a href="#seguranca" className="text-primary-foreground/80 hover:text-accent transition-colors duration-200">
+                  Segurança
                 </a>
               </li>
               <li>
@@ -92,7 +87,7 @@ export const Footer = () => {
 
         {/* Contact Info */}
         <div className="border-t border-primary-foreground/20 pt-8 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-center space-x-3">
               <Mail className="w-5 h-5 text-accent" />
               <div>
@@ -105,15 +100,7 @@ export const Footer = () => {
               <Phone className="w-5 h-5 text-accent" />
               <div>
                 <div className="font-medium">Telefone</div>
-                <div className="text-primary-foreground/80 text-sm">+55 (11) 9 8765-4321</div>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <MapPin className="w-5 h-5 text-accent" />
-              <div>
-                <div className="font-medium">Endereço</div>
-                <div className="text-primary-foreground/80 text-sm">São Paulo, SP</div>
+                <div className="text-primary-foreground/80 text-sm">(62) 99692-0050</div>
               </div>
             </div>
           </div>
@@ -123,7 +110,7 @@ export const Footer = () => {
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-primary-foreground/80 text-sm">
-              © {currentYear} VERITUS – Todos os direitos reservados
+              © {currentYear} Veritus – Todos os direitos reservados
             </div>
             
             <div className="text-primary-foreground/60 text-sm">

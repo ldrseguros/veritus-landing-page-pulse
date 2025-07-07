@@ -50,7 +50,7 @@ export const BenefitsSection = () => {
   ];
 
   return (
-    <section id="resultados" className="py-20 bg-background">
+    <section id="beneficios" className="py-20 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-up">

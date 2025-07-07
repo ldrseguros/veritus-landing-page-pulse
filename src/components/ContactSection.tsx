@@ -156,11 +156,11 @@ export const ContactSection = () => {
                     className="mt-1"
                   />
                   <label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
-                    Concordo com a{' '}
+                    Concordo em receber comunicações da Veritus conforme{' '}
                     <a href="#" className="text-accent hover:underline">
                       Política de Privacidade
-                    </a>{' '}
-                    e autorizo o contato para demonstração do produto conforme LGPD.
+                    </a>
+                    {' '}e LGPD.
                   </label>
                 </div>
 
@@ -175,7 +175,7 @@ export const ContactSection = () => {
                       <span>Enviando...</span>
                     </div>
                   ) : (
-                    'Quero saber mais'
+                    'Enviar'
                   )}
                 </Button>
               </form>
@@ -209,27 +209,15 @@ export const ContactSection = () => {
                     <div className="w-10 h-10 bg-gradient-cta rounded-lg flex items-center justify-center">
                       <Phone className="w-5 h-5 text-accent-foreground" />
                     </div>
-                    <div>
+                   <div>
                       <h4 className="font-semibold text-primary">Telefone</h4>
-                      <p className="text-muted-foreground">+55 (11) 9 8765-4321</p>
+                      <p className="text-muted-foreground">(62) 99692-0050</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         Seg-Sex, 9h às 18h
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-gradient-cta rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">Endereço</h4>
-                      <p className="text-muted-foreground">
-                        Av. Faria Lima, 3064<br />
-                        São Paulo, SP - 01451-001
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
 

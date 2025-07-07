@@ -49,16 +49,16 @@ export const Header = () => {
               Como Funciona
             </button>
             <button 
-              onClick={() => scrollToSection('resultados')}
+              onClick={() => scrollToSection('beneficios')}
               className="text-foreground hover:text-accent transition-colors duration-200"
             >
-              Resultados
+              Benefícios
             </button>
             <button 
-              onClick={() => scrollToSection('cases')}
+              onClick={() => scrollToSection('seguranca')}
               className="text-foreground hover:text-accent transition-colors duration-200"
             >
-              Cases
+              Segurança
             </button>
             <button 
               onClick={() => scrollToSection('contato')}

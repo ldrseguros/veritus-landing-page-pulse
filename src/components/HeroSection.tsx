@@ -34,16 +34,10 @@ export const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
               <Button 
-                onClick={() => scrollToSection('demo')}
                 className="btn-accent px-8 py-4 text-lg font-semibold"
+                onClick={() => window.open('#', '_blank')}
               >
-                Ver Demonstração
-              </Button>
-              <Button 
-                variant="outline"
-                className="bg-white/10 text-white border-white/30 hover:bg-white/20 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
-              >
-                Pitch Deck
+                Ver Relatórios Exemplo
               </Button>
             </div>
 
