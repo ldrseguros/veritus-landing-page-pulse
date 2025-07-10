@@ -32,15 +32,6 @@ export const HeroSection = () => {
               Reduza riscos, otimize decisões e proteja seu legado com inteligência artificial.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <Button 
-                className="btn-accent px-8 py-4 text-lg font-semibold"
-                onClick={() => window.open('#', '_blank')}
-              >
-                Ver Relatórios Exemplo
-              </Button>
-            </div>
-
             {/* Video Button */}
             <div className="flex justify-center lg:justify-start">
               <button 
