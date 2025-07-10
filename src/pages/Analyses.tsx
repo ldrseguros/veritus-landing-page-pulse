@@ -78,14 +78,16 @@ const Analyses = () => {
                     </Badge>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full mt-4 border-accent text-accent hover:bg-accent hover:text-white"
-                  >
-                    <Eye className="h-4 w-4 mr-2" />
-                    Visualizar
-                  </Button>
+                  <Link to={`/analise/${analysis.id.toString().padStart(4, '0')}`}>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full mt-4 border-accent text-accent hover:bg-accent hover:text-white"
+                    >
+                      <Eye className="h-4 w-4 mr-2" />
+                      Visualizar
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -101,10 +103,12 @@ const Analyses = () => {
               <p className="text-muted-foreground mb-6">
                 Comece criando sua primeira análise de documentos
               </p>
-              <Button className="btn-accent">
-                <Plus className="h-5 w-5 mr-2" />
-                Fazer primeira análise
-              </Button>
+              <Link to="/nova-analise">
+                <Button className="btn-accent">
+                  <Plus className="h-5 w-5 mr-2" />
+                  Fazer primeira análise
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         )}

@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import Dashboard from "./pages/Dashboard";
 import Analyses from "./pages/Analyses";
+import AnalysisDetail from "./pages/AnalysisDetail";
 import Settings from "./pages/Settings";
 import NewAnalysis from "./pages/NewAnalysis";
 import NotFound from "./pages/NotFound";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/criar-conta" element={<CreateAccount />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/analises" element={<Analyses />} />
+          <Route path="/analise/:id" element={<AnalysisDetail />} />
           <Route path="/configuracoes" element={<Settings />} />
           <Route path="/nova-analise" element={<NewAnalysis />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
