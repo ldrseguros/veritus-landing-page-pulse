@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { Shield, LayoutDashboard, FileText, Settings, Plus, LogOut } from 'lucide-react';
+import { LayoutDashboard, FileText, Settings, Plus, LogOut } from 'lucide-react';
 
 const AppSidebar = () => {
   const location = useLocation();
@@ -17,7 +17,11 @@ const AppSidebar = () => {
       {/* Header */}
       <div className="p-6 border-b border-border">
         <div className="flex items-center mb-4">
-          <Shield className="h-6 w-6 text-primary mr-2" />
+          <img 
+            src="/lovable-uploads/d3ebc4e9-a69a-48c5-adcb-85c46b816e10.png" 
+            alt="VERITUS" 
+            className="h-8 mr-3"
+          />
           <span className="text-xl font-heading font-bold text-primary">VERITUS</span>
         </div>
         

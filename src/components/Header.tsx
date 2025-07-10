@@ -33,12 +33,11 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-cta rounded-lg flex items-center justify-center">
-              <span className="text-accent-foreground font-bold text-xl">V</span>
-            </div>
-            <span className="text-2xl font-heading font-bold text-primary">
-              VERITUS
-            </span>
+            <img 
+              src="/lovable-uploads/3257a8c8-4a48-4188-938d-9e2e04c79bc7.png" 
+              alt="VERITUS" 
+              className="h-10"
+            />
           </div>
 
           {/* Navigation */}

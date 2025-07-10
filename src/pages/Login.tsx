@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Eye, EyeOff, Shield } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,8 +24,11 @@ const Login = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <Shield className="h-8 w-8 text-primary mr-2" />
-            <span className="text-2xl font-heading font-bold text-primary">VERITUS</span>
+            <img 
+              src="/lovable-uploads/fcbe7d83-2112-4db5-923c-0ba352fc958e.png" 
+              alt="VERITUS" 
+              className="h-16"
+            />
           </div>
           <h1 className="text-3xl font-heading font-bold text-foreground mb-2">
             Entrar na Plataforma
