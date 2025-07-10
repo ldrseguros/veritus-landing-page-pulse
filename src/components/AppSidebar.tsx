@@ -20,7 +20,7 @@ const AppSidebar = () => {
           <img 
             src="/lovable-uploads/d3ebc4e9-a69a-48c5-adcb-85c46b816e10.png" 
             alt="VERITUS" 
-            className="h-8 mr-3"
+            className="h-10 mr-3"
           />
           <span className="text-xl font-heading font-bold text-primary">VERITUS</span>
         </div>

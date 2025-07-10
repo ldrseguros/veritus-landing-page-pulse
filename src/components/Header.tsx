@@ -36,7 +36,7 @@ export const Header = () => {
             <img 
               src="/lovable-uploads/3257a8c8-4a48-4188-938d-9e2e04c79bc7.png" 
               alt="VERITUS" 
-              className="h-10"
+              className="h-12"
             />
           </div>
 

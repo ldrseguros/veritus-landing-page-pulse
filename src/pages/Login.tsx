@@ -27,7 +27,7 @@ const Login = () => {
             <img 
               src="/lovable-uploads/fcbe7d83-2112-4db5-923c-0ba352fc958e.png" 
               alt="VERITUS" 
-              className="h-16"
+              className="h-20"
             />
           </div>
           <h1 className="text-3xl font-heading font-bold text-foreground mb-2">
