@@ -78,12 +78,13 @@ export const Header = () => {
                 Entrar
               </Button>
             </Link>
-            <Button 
-              onClick={() => scrollToSection('contato')}
-              className="btn-accent px-6 py-2.5 font-semibold"
-            >
-              Agendar Demo
-            </Button>
+            <Link to="/criar-conta">
+              <Button 
+                className="btn-accent px-6 py-2.5 font-semibold"
+              >
+                Criar Conta
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
