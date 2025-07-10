@@ -48,25 +48,41 @@ export const Header = () => {
             <nav className="hidden lg:flex items-center space-x-8">
               <button 
                 onClick={() => scrollToSection('como-funciona')}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium"
+                className={`transition-colors duration-200 font-medium text-base ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-accent' 
+                    : 'text-white hover:text-accent'
+                }`}
               >
                 Como Funciona
               </button>
               <button 
                 onClick={() => scrollToSection('beneficios')}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium"
+                className={`transition-colors duration-200 font-medium text-base ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-accent' 
+                    : 'text-white hover:text-accent'
+                }`}
               >
                 Benefícios
               </button>
               <button 
                 onClick={() => scrollToSection('seguranca')}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium"
+                className={`transition-colors duration-200 font-medium text-base ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-accent' 
+                    : 'text-white hover:text-accent'
+                }`}
               >
                 Segurança
               </button>
               <button 
                 onClick={() => scrollToSection('contato')}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium"
+                className={`transition-colors duration-200 font-medium text-base ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-accent' 
+                    : 'text-white hover:text-accent'
+                }`}
               >
                 Contato
               </button>
@@ -77,14 +93,18 @@ export const Header = () => {
               <Link to="/login">
                 <Button 
                   variant="outline"
-                  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-4 lg:px-6 py-2 lg:py-2.5 font-semibold text-sm lg:text-base"
+                  className={`border-2 font-semibold px-4 lg:px-6 py-2 lg:py-2.5 text-sm lg:text-base transition-all duration-200 ${
+                    isScrolled 
+                      ? 'border-accent text-accent hover:bg-accent hover:text-accent-foreground' 
+                      : 'border-white text-white hover:bg-white hover:text-primary'
+                  }`}
                 >
                   Entrar
                 </Button>
               </Link>
               <Link to="/criar-conta">
                 <Button 
-                  className="btn-accent px-4 lg:px-6 py-2 lg:py-2.5 font-semibold text-sm lg:text-base"
+                  className="btn-accent px-4 lg:px-6 py-2 lg:py-2.5 font-semibold text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
                   Criar Conta
                 </Button>
@@ -94,7 +114,11 @@ export const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
+              className={`lg:hidden p-2 transition-colors ${
+                isScrolled 
+                  ? 'text-foreground hover:text-accent' 
+                  : 'text-white hover:text-accent'
+              }`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
