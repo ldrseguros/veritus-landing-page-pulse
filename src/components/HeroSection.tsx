@@ -23,12 +23,12 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left animate-fade-up">
-            <h1 className="text-5xl lg:text-7xl font-heading font-bold text-white mb-6 text-shadow-lg">
+            <h1 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6 text-shadow-lg">
               Análises contratuais em{' '}
               <span className="text-accent">minutos</span>, não em semanas.
             </h1>
             
-            <p className="text-xl lg:text-2xl text-white/90 mb-8 max-w-2xl text-shadow">
+            <p className="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl text-shadow">
               Reduza riscos, otimize decisões e proteja seu legado com inteligência artificial.
             </p>
             
@@ -47,27 +47,27 @@ export const HeroSection = () => {
                 onClick={() => setShowVideoModal(true)}
                 className="group flex items-center space-x-3 text-white/90 hover:text-white transition-colors duration-300"
               >
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 backdrop-blur-sm">
-                  <Play className="w-6 h-6 ml-1" fill="currentColor" />
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 backdrop-blur-sm">
+                  <Play className="w-5 h-5 ml-1" fill="currentColor" />
                 </div>
-                <span className="text-lg font-medium">Assista ao vídeo institucional (60s)</span>
+                <span className="text-base font-medium">Assista ao vídeo institucional (60s)</span>
               </button>
             </div>
           </div>
 
           {/* Dashboard Mockup */}
           <div className="animate-scale-in lg:animate-fade-up" style={{animationDelay: '0.5s'}}>
-            <div className="card-premium p-8 bg-white/95 backdrop-blur-sm">
-              <div className="space-y-6">
+            <div className="card-premium p-6 bg-white/95 backdrop-blur-sm">
+              <div className="space-y-5">
                 {/* Header */}
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-primary">Análise Contratual</h3>
-                  <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                  <h3 className="text-lg font-semibold text-primary">Análise Contratual</h3>
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
                 </div>
 
                 {/* Score Display */}
                 <div className="text-center">
-                  <div className="relative w-32 h-32 mx-auto">
+                  <div className="relative w-24 h-24 mx-auto">
                     <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                       <circle
                         cx="50"
@@ -90,33 +90,33 @@ export const HeroSection = () => {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-3xl font-bold text-primary">72</span>
+                      <span className="text-2xl font-bold text-primary">72</span>
                     </div>
                   </div>
-                  <p className="text-lg font-semibold text-primary mt-2">Score de Risco</p>
+                  <p className="text-base font-semibold text-primary mt-2">Score de Risco</p>
                 </div>
 
                 {/* Critical Points */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-primary">Cláusulas Críticas Identificadas:</h4>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <span className="text-sm">Limitação de responsabilidade excessiva</span>
+                <div className="space-y-2">
+                  <h4 className="text-sm font-semibold text-primary">Cláusulas Críticas Identificadas:</h4>
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-2 p-2 bg-muted/50 rounded-lg">
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      <span className="text-xs">Limitação de responsabilidade excessiva</span>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <span className="text-sm">Prazo de carência não especificado</span>
+                    <div className="flex items-center space-x-2 p-2 bg-muted/50 rounded-lg">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                      <span className="text-xs">Prazo de carência não especificado</span>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <span className="text-sm">Cobertura geografica limitada</span>
+                    <div className="flex items-center space-x-2 p-2 bg-muted/50 rounded-lg">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                      <span className="text-xs">Cobertura geografica limitada</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Action Button */}
-                <Button className="w-full btn-primary">
+                <Button className="w-full btn-primary text-sm py-2">
                   Baixar Relatório Completo
                 </Button>
               </div>
