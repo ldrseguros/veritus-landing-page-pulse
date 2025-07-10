@@ -93,11 +93,7 @@ export const Header = () => {
               <Link to="/login">
                 <Button 
                   variant="outline"
-                  className={`border-2 font-semibold px-4 lg:px-6 py-2 lg:py-2.5 text-sm lg:text-base transition-all duration-200 ${
-                    isScrolled 
-                      ? 'border-accent text-accent hover:bg-accent hover:text-accent-foreground' 
-                      : 'border-white text-white hover:bg-white hover:text-primary'
-                  }`}
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-white/10 backdrop-blur-sm font-semibold px-4 lg:px-6 py-2 lg:py-2.5 text-sm lg:text-base transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   Entrar
                 </Button>
