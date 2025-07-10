@@ -129,8 +129,7 @@ const NewAnalysis = () => {
         <div className="flex items-center gap-4 p-6 border-b">
           <Link to="/dashboard">
             <Button variant="ghost" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Análise 0004
+              <ArrowLeft className="h-4 w-4" />
             </Button>
           </Link>
         </div>
