@@ -119,13 +119,19 @@ export const HeroSection = () => {
       {/* Video Modal */}
       {showVideoModal && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={() => setShowVideoModal(false)}>
-          <div className="bg-white rounded-xl p-8 max-w-4xl w-full mx-4">
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <Play className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                <p className="text-lg text-muted-foreground">Vídeo institucional VERITUS</p>
-                <p className="text-sm text-muted-foreground">Narrativa de 60s sobre a solução</p>
-              </div>
+          <div className="bg-white rounded-xl p-8 max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
+            <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/z9FW5T0NMU8?si=SYYXRoTDkFaqVEAm" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+                className="rounded-lg"
+              ></iframe>
             </div>
             <Button 
               onClick={() => setShowVideoModal(false)}
