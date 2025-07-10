@@ -10,14 +10,14 @@ const Analyses = () => {
   const analyses = [
     {
       id: 1,
-      name: 'Contrato X',
+      name: 'Análise 0001',
       date: '03/07/2025',
       status: 'Concluída',
       type: 'Contrato'
     },
     {
       id: 2,
-      name: 'Apólice Y',
+      name: 'Análise 0002',
       date: '01/07/2025',
       status: 'Em análise',
       type: 'Apólice'
