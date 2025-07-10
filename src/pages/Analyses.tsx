@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Plus, Eye, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AppLayout from '@/components/AppLayout';
 
 const Analyses = () => {
@@ -40,10 +41,12 @@ const Analyses = () => {
         {/* Header */}
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-heading font-bold">Análises Realizadas</h1>
-          <Button className="btn-accent">
-            <Plus className="h-5 w-5 mr-2" />
-            Nova Análise
-          </Button>
+          <Link to="/nova-analise">
+            <Button className="btn-accent">
+              <Plus className="h-5 w-5 mr-2" />
+              Nova Análise
+            </Button>
+          </Link>
         </div>
 
         {/* Analyses List */}

@@ -1,191 +1,179 @@
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Upload, FileText, CheckCircle, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Upload, MessageCircle, ArrowLeft } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import AppLayout from '@/components/AppLayout';
 
 const NewAnalysis = () => {
-  const [files, setFiles] = useState<{
-    contract: File | null;
-    policy: File | null;
-    conditions: File | null;
-  }>({
-    contract: null,
-    policy: null,
-    conditions: null
-  });
+  const navigate = useNavigate();
+  const [documentType, setDocumentType] = useState<string>('');
+  const [files, setFiles] = useState<File[]>([]);
+  const [dragActive, setDragActive] = useState(false);
 
-  const handleFileUpload = (type: 'contract' | 'policy' | 'conditions', file: File) => {
-    setFiles(prev => ({ ...prev, [type]: file }));
+  const handleDrag = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const newFiles = Array.from(e.dataTransfer.files);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simular envio para análise
-    console.log('Files for analysis:', files);
-    // Redirecionar para análises
-    window.location.href = '/analises';
+    if (files.length > 0 && documentType) {
+      // Simular criação de nova análise
+      console.log('Análise criada:', { documentType, files });
+      navigate('/analises');
+    }
   };
 
-  const FileUploadCard = ({ 
-    type, 
-    title, 
-    description, 
-    file 
-  }: {
-    type: 'contract' | 'policy' | 'conditions';
-    title: string;
-    description: string;
-    file: File | null;
-  }) => (
-    <Card className="hover:shadow-lg transition-shadow">
-      <CardContent className="p-6">
-        <div className="text-center">
-          <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            {file ? (
-              <CheckCircle className="h-8 w-8 text-green-600" />
-            ) : (
-              <Upload className="h-8 w-8 text-accent" />
-            )}
-          </div>
-          
-          <h3 className="font-semibold mb-2">{title}</h3>
-          <p className="text-sm text-muted-foreground mb-4">{description}</p>
-          
-          {file ? (
-            <div className="space-y-2">
-              <p className="text-sm font-medium text-green-600">
-                ✓ {file.name}
-              </p>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={() => handleFileUpload(type, file)}
-              >
-                Alterar arquivo
-              </Button>
-            </div>
-          ) : (
-            <Label htmlFor={`file-${type}`} className="cursor-pointer">
-              <Button variant="outline" asChild>
-                <span>Selecionar arquivo</span>
-              </Button>
-              <Input
-                id={`file-${type}`}
-                type="file"
-                accept=".pdf,.doc,.docx"
-                className="hidden"
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  if (file) handleFileUpload(type, file);
-                }}
-              />
-            </Label>
-          )}
-        </div>
-      </CardContent>
-    </Card>
-  );
 
   return (
     <AppLayout>
-      <div className="p-6 space-y-6 max-w-4xl">
+      <div className="min-h-screen bg-background">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-4 p-6 border-b">
           <Link to="/dashboard">
-            <Button variant="outline" size="sm">
+            <Button variant="ghost" size="sm">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Voltar
+              Análise 0004
             </Button>
           </Link>
-          <h1 className="text-3xl font-heading font-bold">Nova Análise</h1>
         </div>
 
-        <p className="text-muted-foreground mb-8">
-          Faça upload dos documentos para análise automatizada. O sistema irá processar e comparar os conteúdos.
-        </p>
-
-        {/* Upload Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* File Upload Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <FileUploadCard
-              type="contract"
-              title="Contrato"
-              description="Documento principal do contrato"
-              file={files.contract}
-            />
-            
-            <FileUploadCard
-              type="policy"
-              title="Apólice"
-              description="Apólice de seguro relacionada"
-              file={files.policy}
-            />
-            
-            <FileUploadCard
-              type="conditions"
-              title="Condições"
-              description="Condições gerais e específicas"
-              file={files.conditions}
-            />
+        {/* Main Content */}
+        <div className="flex flex-col items-center justify-center p-8 space-y-8 max-w-2xl mx-auto">
+          {/* Chat Icon */}
+          <div className="w-16 h-16 bg-muted/30 rounded-full flex items-center justify-center">
+            <MessageCircle className="h-8 w-8 text-muted-foreground" />
           </div>
 
-          {/* Analysis Process Info */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-accent" />
-                Processo de Análise
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-                <div className="space-y-2">
-                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-accent font-bold">1</span>
-                  </div>
-                  <p className="text-sm">Upload dos documentos</p>
+          {/* Title */}
+          <div className="text-center space-y-4">
+            <h1 className="text-2xl font-bold text-foreground">Pronto para Análise</h1>
+            <p className="text-muted-foreground">
+              Envie seus documentos abaixo para iniciar uma análise jurídica completa.
+            </p>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="w-full space-y-6">
+            {/* Document Type Selection */}
+            <div className="space-y-4">
+              <h2 className="text-lg font-semibold text-center">Selecione o Tipo de Documento</h2>
+              <p className="text-sm text-muted-foreground text-center">
+                Escolha a categoria que melhor descreve seu documento
+              </p>
+              
+              <Select value={documentType} onValueChange={setDocumentType}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Contrato" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="contrato">Contrato</SelectItem>
+                  <SelectItem value="apolice">Apólice</SelectItem>
+                  <SelectItem value="condicoes-gerais">Condições Gerais</SelectItem>
+                  <SelectItem value="outros">Outros</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* File Upload Area */}
+            <div 
+              className={`border-2 border-dashed rounded-lg p-12 text-center transition-colors ${
+                dragActive ? 'border-primary bg-primary/5' : 'border-muted-foreground/25'
+              }`}
+              onDragEnter={handleDrag}
+              onDragLeave={handleDrag}
+              onDragOver={handleDrag}
+              onDrop={handleDrop}
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+                  <Upload className="h-6 w-6 text-primary" />
                 </div>
                 
                 <div className="space-y-2">
-                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-accent font-bold">2</span>
-                  </div>
-                  <p className="text-sm">IA processa e compara</p>
+                  <p className="text-base font-medium">
+                    Arraste documentos ou clique para selecionar
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    PDF, DOC, DOCX até 100MB (múltiplos arquivos)
+                  </p>
                 </div>
-                
-                <div className="space-y-2">
-                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-accent font-bold">3</span>
-                  </div>
-                  <p className="text-sm">Geração de 3 relatórios</p>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-accent font-bold">4</span>
-                  </div>
-                  <p className="text-sm">Decisão orientada</p>
+
+                <input
+                  type="file"
+                  multiple
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleFileSelect}
+                  className="hidden"
+                  id="file-upload"
+                />
+                <label htmlFor="file-upload">
+                  <Button type="button" variant="outline" className="mt-4">
+                    Selecionar Arquivos
+                  </Button>
+                </label>
+              </div>
+            </div>
+
+            {/* Selected Files */}
+            {files.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="font-medium">Arquivos selecionados:</h3>
+                <div className="space-y-1">
+                  {files.map((file, index) => (
+                    <div key={index} className="flex items-center justify-between bg-muted/50 p-2 rounded">
+                      <span className="text-sm">{file.name}</span>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setFiles(files.filter((_, i) => i !== index))}
+                      >
+                        ×
+                      </Button>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            )}
 
-          {/* Submit Button */}
-          <div className="flex justify-center">
-            <Button 
-              type="submit" 
-              className="btn-accent px-8 py-3 text-lg"
-              disabled={!files.contract && !files.policy && !files.conditions}
-            >
-              Iniciar Análise
-            </Button>
-          </div>
-        </form>
+            {/* Submit Button */}
+            <div className="flex justify-center pt-4">
+              <Button 
+                type="submit" 
+                className="btn-accent px-8 py-3"
+                disabled={files.length === 0 || !documentType}
+              >
+                Iniciar Análise
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </AppLayout>
   );
