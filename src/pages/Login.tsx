@@ -96,17 +96,6 @@ const Login = () => {
               </Link>
             </p>
           </div>
-
-          {/* Demo Account */}
-          <div className="mt-6 p-4 bg-muted rounded-lg">
-            <h3 className="font-medium text-sm mb-2">Conta de Demonstração:</h3>
-            <p className="text-xs text-muted-foreground mb-1">
-              <strong>Email:</strong> admin@veritus.com
-            </p>
-            <p className="text-xs text-muted-foreground">
-              <strong>Senha:</strong> admin123
-            </p>
-          </div>
         </div>
 
         <div className="text-center mt-6">

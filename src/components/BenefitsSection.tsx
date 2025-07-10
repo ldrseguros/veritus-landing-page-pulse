@@ -140,25 +140,6 @@ export const BenefitsSection = () => {
                 </div>
               </div>
             </div>
-
-            {/* Client Testimonial */}
-            <div className="card-premium p-6 mt-6 animate-fade-up" style={{ animationDelay: '0.8s' }}>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-cta rounded-full flex items-center justify-center text-accent-foreground font-bold text-lg">
-                  R
-                </div>
-                <div>
-                  <p className="text-muted-foreground italic mb-2">
-                    "O VERITUS reduziu nosso tempo de análise de contratos em 85%. 
-                    Agora conseguimos revisar 10x mais contratos com a mesma equipe."
-                  </p>
-                  <div>
-                    <div className="font-semibold text-primary">Roberto Silva</div>
-                    <div className="text-sm text-muted-foreground">Director Jurídico, TechCorp</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
