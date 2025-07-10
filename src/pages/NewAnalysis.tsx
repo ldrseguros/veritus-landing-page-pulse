@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Upload, MessageCircle, ArrowLeft, Camera, X, Image } from 'lucide-react';
+import { Upload, MessageCircle, ArrowLeft, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
-import { Camera as CapacitorCamera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { Capacitor } from '@capacitor/core';
 import AppLayout from '@/components/AppLayout';
 
 const NewAnalysis = () => {
@@ -77,76 +75,6 @@ const NewAnalysis = () => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
       handleFileValidation(newFiles);
-    }
-  };
-
-  // Native camera function for mobile devices
-  const openNativeCamera = async () => {
-    if (!Capacitor.isNativePlatform()) {
-      // Fallback to web camera for browsers
-      const input = document.getElementById('camera-upload') as HTMLInputElement;
-      input?.click();
-      return;
-    }
-
-    try {
-      const image = await CapacitorCamera.getPhoto({
-        quality: 90,
-        allowEditing: false,
-        resultType: CameraResultType.DataUrl,
-        source: CameraSource.Camera
-      });
-
-      if (image.dataUrl) {
-        // Convert dataURL to File object
-        const response = await fetch(image.dataUrl);
-        const blob = await response.blob();
-        const file = new File([blob], `camera-${Date.now()}.jpg`, { type: 'image/jpeg' });
-        
-        handleFileValidation([file]);
-      }
-    } catch (error) {
-      console.error('Error taking photo:', error);
-      toast({
-        variant: "destructive",
-        title: "Erro ao acessar câmera",
-        description: "Não foi possível acessar a câmera. Tente novamente.",
-      });
-    }
-  };
-
-  // Native gallery function for mobile devices
-  const openNativeGallery = async () => {
-    if (!Capacitor.isNativePlatform()) {
-      // Fallback to web file input for browsers
-      const input = document.getElementById('file-upload') as HTMLInputElement;
-      input?.click();
-      return;
-    }
-
-    try {
-      const image = await CapacitorCamera.getPhoto({
-        quality: 90,
-        allowEditing: false,
-        resultType: CameraResultType.DataUrl,
-        source: CameraSource.Photos
-      });
-
-      if (image.dataUrl) {
-        // Convert dataURL to File object
-        const response = await fetch(image.dataUrl);
-        const blob = await response.blob();
-        const file = new File([blob], `gallery-${Date.now()}.jpg`, { type: 'image/jpeg' });
-        
-        handleFileValidation([file]);
-      }
-    } catch (error) {
-      console.error('Error selecting from gallery:', error);
-      toast({
-        variant: "destructive",
-        title: "Erro ao acessar galeria",
-        description: "Não foi possível acessar a galeria. Tente novamente.",
-      });
     }
   };
 
@@ -268,45 +196,20 @@ const NewAnalysis = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                  <input
-                    type="file"
-                    multiple
-                    accept=".pdf,.doc,.docx,image/*"
-                    onChange={handleFileSelect}
-                    className="hidden"
-                    id="file-upload"
-                  />
-                  <Button 
-                    type="button" 
-                    variant="outline" 
-                    className="cursor-pointer"
-                    onClick={openNativeGallery}
-                  >
+                <input
+                  type="file"
+                  multiple
+                  accept=".pdf,.doc,.docx,image/*"
+                  onChange={handleFileSelect}
+                  className="hidden"
+                  id="file-upload"
+                />
+                <label htmlFor="file-upload">
+                  <Button type="button" variant="outline" className="cursor-pointer">
                     <Upload className="h-4 w-4 mr-2" />
                     Selecionar Arquivos
                   </Button>
-                  
-                  <Button 
-                    type="button" 
-                    variant="outline" 
-                    className="cursor-pointer"
-                    onClick={openNativeCamera}
-                  >
-                    <Camera className="h-4 w-4 mr-2" />
-                    Usar Câmera
-                  </Button>
-
-                  {/* Hidden fallback inputs for web browsers */}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    capture="environment"
-                    onChange={handleFileSelect}
-                    className="hidden"
-                    id="camera-upload"
-                  />
-                </div>
+                </label>
               </div>
             </div>
 
