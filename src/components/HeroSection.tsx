@@ -41,7 +41,7 @@ export const HeroSection = () => {
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 backdrop-blur-sm">
                   <Play className="w-5 h-5 ml-1" fill="currentColor" />
                 </div>
-                <span className="text-base font-medium">Assista ao vídeo institucional (60s)</span>
+                <span className="text-base font-medium">Assista ao vídeo institucional</span>
               </button>
             </div>
           </div>
