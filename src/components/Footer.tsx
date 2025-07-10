@@ -21,7 +21,7 @@ export const Footer = () => {
             </p>
             <div className="flex items-center space-x-2 text-accent">
               <Mail className="w-4 h-4" />
-              <span>contato@veritus.com.br</span>
+              <span>fabricadeempresass@gmail.com</span>
             </div>
           </div>
 
@@ -87,12 +87,12 @@ export const Footer = () => {
 
         {/* Contact Info */}
         <div className="border-t border-primary-foreground/20 pt-8 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center space-x-3">
               <Mail className="w-5 h-5 text-accent" />
               <div>
                 <div className="font-medium">E-mail</div>
-                <div className="text-primary-foreground/80 text-sm">contato@veritus.com.br</div>
+                <div className="text-primary-foreground/80 text-sm">fabricadeempresass@gmail.com</div>
               </div>
             </div>
             
@@ -100,7 +100,15 @@ export const Footer = () => {
               <Phone className="w-5 h-5 text-accent" />
               <div>
                 <div className="font-medium">Telefone</div>
-                <div className="text-primary-foreground/80 text-sm">(62) 99692-0050</div>
+                <div className="text-primary-foreground/80 text-sm">(62) 9 9692-0050</div>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <MapPin className="w-5 h-5 text-accent" />
+              <div>
+                <div className="font-medium">Contato</div>
+                <div className="text-primary-foreground/80 text-sm">Gustavo Mariano</div>
               </div>
             </div>
           </div>
