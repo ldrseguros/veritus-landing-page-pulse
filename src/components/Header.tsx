@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,13 +69,23 @@ export const Header = () => {
             </button>
           </nav>
 
-          {/* CTA Button */}
-          <Button 
-            onClick={() => scrollToSection('contato')}
-            className="btn-accent px-6 py-2.5 font-semibold"
-          >
-            Agendar Demo
-          </Button>
+          {/* CTA Buttons */}
+          <div className="flex items-center space-x-4">
+            <Link to="/login">
+              <Button 
+                variant="outline"
+                className="border-accent text-accent hover:bg-accent hover:text-white px-6 py-2.5 font-semibold"
+              >
+                Entrar
+              </Button>
+            </Link>
+            <Button 
+              onClick={() => scrollToSection('contato')}
+              className="btn-accent px-6 py-2.5 font-semibold"
+            >
+              Agendar Demo
+            </Button>
+          </div>
         </div>
       </div>
     </header>
